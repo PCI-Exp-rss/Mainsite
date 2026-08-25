@@ -13,7 +13,7 @@ body{
     filter:none;
     font-family: "Nothing", sans-serif;
     font-weight: 400;
-    background-image: url('https://codehs.com/uploads/104f4ce5999e81786bb593a3e9cdad1f');
+    background-image: url('./AST/bg.png');
     background-size:100%;
     
     transition:0.7s;
@@ -35,7 +35,7 @@ body{
 }
 .ftdiv:hover{
     transition:0.2s;
-    outline: 3px dashed black;
+    outline: 3px solid black;
     border-radius: 8px;
     box-shadow:3px;
 }    
@@ -136,7 +136,8 @@ a:hover{
 .maindiv:hover{
     box-shadow:5px 5px 3px grey;
     transition:0.5s;
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(5px);
+    border-radius:30px;
 }
 
 
@@ -178,7 +179,7 @@ img{
 
 
 img:hover{
-    border-radius:5%;
+    border-radius:10%;
     transition:0.3s;
 }
 
