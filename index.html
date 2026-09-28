@@ -10,75 +10,141 @@
     <body>
         
     <div class="menubar">
-        <img src="https://codehs.com/uploads/8d3ca722eaa41f3a788e50acd41769e8" style="margin-right:20px;">
-        <a href="repairs.html">My repairs</a>
-        
-        <a href="more.html">More</a>
-        <a href="ctc.html">Contact</a>
+        <a style="  margin-top:20px; "><🅿🅲🅸-Express>‎ ‎ ‎ ‎ </a>
+        <br>
+        <a href="repairs.html" style="  margin-top:20px;">My repairs  </a>
+        <a href="guides.html" style="  margin-top:20px;">Guides  </a>
+        <a href="https://github.com/PCI-Exp-rss/" style="  margin-top:20px;">My Software</a>
+        <a href="ctc.html" style="  margin-top:20px;">Contact</a>
     </div>
     <br>
+
+    <div id="discord-widget" class="dc-card" style="display: none;">
+    <div class="dc-user-section" style="display: flex;">
+      <div class="dc-avatar-wrapper">
+        <img id="dc-pfp" class="dc-avatar" src="" alt="Profile Picture">
+        <div id="dc-dot" class="dc-dot"></div>
+        <div id="dc-devices" class="dc-devices"></div>
+      </div>
+      <div class="dc-info">
+        <div id="dc-username" class="dc-username"></div>
+        <div id="dc-status-text" class="dc-status-text"></div>
+      </div>
+    </div>
+    <div id="dc-activity" class="dc-activity">
+      </div>
+      <img style="position:absolute; top:85px; left:300px; height:20%;"src="https://codehs.com/uploads/4889c0a4139d5b4ea7ebc017fdd59cc2">
+      <a href="https://discord.com/channels/@me/1209579752290131968" style="font-size:20px;"><div class="maindiv" style="align:left;" >> Add To Direct Messages</div></a>
+  </div>
+  
+  <br><br>
     
     <div class="maindiv">
-        
-        
-        
-        
-        <h1> Featured repair</h1>
-        
-        <a href="">
-        <div class="ftdiv" id="featured1"style="display:none;">
-            <img src="https://codehs.com/uploads/92abc14f2651283cb3e8fc5050e93ac8" class="imageindex">
-            <h1>2018 12.9" iPad Pro Repair </h1>
-        </div>
-        </a>
-        
-        <a href="/repairs/a8.html">
-        <div class="ftdiv" id="featured2"style="display:none;">
-            <img src="https://codehs.com/uploads/bc53472a10144bc7a5c11a7cc89d3c7c" class="imageindex">
-            <h1>A8 2018 Repairs</h1>
-            <p>If you notice the gemini watermark, it's since I had my hand over some of the phone :) </p>
-        </div>
-        </a>
-        
-        <a href="repairs/a2221.html">
-        <div class="ftdiv" id="featured3"style="display:none;">
-            <h1>iPhone 11 repair</h1>
-            <img src="https://codehs.com/uploads/b322336029cd7f44f07abfd9651ab22a" class="imageindex">
-        </div>
-        </a>
-        
-        <a href="">
-        <div class="ftdiv" id="featured4" style="display:none;">
-            <h1>Google Pixel 3 Repair</h1>
-            <img src="https://codehs.com/uploads/e6281bcdb4a526e2a4dba56fb69b1f1b" class="imageindex">
-            
-        </div>
-        </a>
-        
-        <a href="">
-        <div class="ftdiv" id="featured5" style="display:none;">
-            <h1>iPad 9 Repair</h1>
-            <img src="https://codehs.com/uploads/ba1b47dd8a1ce0af802b071808ead015" class="imageindex">
-            
-        </div>
-        </a>
-        
-        <a href="">
-        <div class="ftdiv" id="featured6" style="display:none;">
-            <h1>Mi band 7 Repair</h1>
-            <img src="https://codehs.com/uploads/3771772bb48b4e432507cda5e7b80240" class="imageindex">
-            
-        </div>
-        
-        </a>
-        
-        
-        
-             
+        <h1>Get a Look at My Repairs</h1>
+        <h2><a href="repairs.html">>repairs.html</a></h2>
     </div>
-
+    <br>
+    <br>
+    <div class="maindiv">
+        <h1>Android Apps And More Coming Soon</h1>
+        <h2><a href="repairs.html">>Things to come</a></h2>
+    </div>
+    
+    
         
         <script src="script.js"></script>
+        <script> async function fetchDiscordStatus() {
+    try {
+      const res = await fetch("https://api.lanyard.rest/v1/users/1209579752290131968");
+      const { data } = await res.json();
+      if (!data) return;
+
+      const colors = { online: '#23a559', idle: '#f0b232', dnd: '#f23f43', offline: '#80848e' };
+      const statusColor = colors[data.discord_status] || colors.offline;
+
+      const ext = data.discord_user.avatar.startsWith('a_') ? 'gif' : 'png';
+      document.getElementById('dc-pfp').src = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.${ext}?size=128`;
+      document.getElementById('dc-dot').style.backgroundColor = statusColor;
+      document.getElementById('dc-username').textContent = data.discord_user.global_name || data.discord_user.username;
+
+      const customStatus = data.activities.find(a => a.type === 4);
+      let statusText = "No custom status";
+      if (customStatus) {
+        statusText = customStatus.state || "";
+        if (customStatus.emoji) {
+          const emojiStr = customStatus.emoji.id ? `:${customStatus.emoji.name}:` : customStatus.emoji.name;
+          statusText = `${emojiStr} ${statusText}`.trim();
+        }
+      }
+      document.getElementById('dc-status-text').textContent = statusText;
+
+      const devIcons = {
+        desktop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+        mobile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
+        web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+      };
+
+      let activeDevices = [];
+      if (data.active_on_discord_desktop) activeDevices.push(devIcons.desktop);
+      if (data.active_on_discord_mobile) activeDevices.push(devIcons.mobile);
+      if (data.active_on_discord_web) activeDevices.push(devIcons.web);
+
+      const devContainer = document.getElementById('dc-devices');
+      devContainer.style.color = statusColor;
+
+      if (activeDevices.length > 0) {
+        devContainer.style.display = 'flex';
+        let html = `<div class="dev-wrapper">${activeDevices[0]}`;
+        if (activeDevices.length > 1) {
+          html += `<div class="dev-badge">+${activeDevices.length - 1}</div>`;
+          let hoverHtml = `<div class="dev-tooltip">`;
+          for(let i = 1; i < activeDevices.length; i++) hoverHtml += activeDevices[i];
+          hoverHtml += `</div>`;
+          html += hoverHtml;
+        }
+        html += `</div>`;
+        devContainer.innerHTML = html;
+      } else {
+        devContainer.style.display = 'none';
+        devContainer.innerHTML = '';
+      }
+
+      const rp = data.activities.find(a => a.type !== 4);
+      const actContainer = document.getElementById('dc-activity');
+      if (rp) {
+        let imgHtml = '';
+        if (rp.assets && rp.assets.large_image) {
+          let imgUrl = rp.assets.large_image.startsWith('mp:external') 
+            ? `https://media.discordapp.net/external/${rp.assets.large_image.replace('mp:external/','')}` 
+            : `https://cdn.discordapp.com/app-assets/${rp.application_id}/${rp.assets.large_image}.png`;
+          imgHtml = `<img src="${imgUrl}" alt="Activity Icon">`;
+        } else {
+          imgHtml = `<div style="width:48px; height:48px; border-radius:8px; background:currentColor; opacity:0.1; flex-shrink:0;"></div>`;
+        }
+
+        actContainer.innerHTML = `
+          ${imgHtml}
+          <div class="dc-activity-info">
+            <div class="dc-activity-name">${rp.name}</div>
+            ${rp.details ? `<div class="dc-activity-details">${rp.details}</div>` : ''}
+            ${rp.state ? `<div class="dc-activity-details">${rp.state}</div>` : ''}
+          </div>
+        `;
+        actContainer.style.display = 'flex';
+      } else {
+        actContainer.style.display = 'none';
+        actContainer.innerHTML = '';
+      }
+
+      document.getElementById('discord-widget').style.display = 'flex';
+
+    } catch(e) {
+      console.error("Failed to fetch Lanyard data:", e);
+    }
+  }
+
+  fetchDiscordStatus();
+  setInterval(fetchDiscordStatus, 100);</script>
     </body>
 
     <footer style="background-color: rgba(128, 128, 128, 0.5); padding:50px; margin-top:100px">
